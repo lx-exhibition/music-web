@@ -1,0 +1,17 @@
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.global.js"></script>
+<script src="//cdn.jsdelivr.net/npm/vue@3"></script>
+<script type="module">
+import { createApp } from 'Vue'
+
+createApp({
+  data() {
+    return {
+      message: 'Hello World!'
+    }
+  }
+}).mount('#app')
+</script>
+
+<div id="app">
+  <h1>{{ message }}</h1>
+</div>

@@ -1,0 +1,8 @@
+<form action="{% url 'test' %}" method="post" enctype="multipart/form-data">
+    {{ form }}
+    <input type="submit">
+</form>
+
+{% for x in a %}
+<img src="{% url 'media' x.avatar %}" style="width: 100px; height: 100px">
+{% endfor %}

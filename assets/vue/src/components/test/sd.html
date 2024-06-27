@@ -1,0 +1,51 @@
+<template>
+    <div class="app-container">
+        <!-- 页面内容 -->
+
+        <!-- 底部栏 -->
+        <div class="footer " v-show="showFooter">底部栏内容</div>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                showFooter: false
+            };
+        },
+        mounted() {
+            window.addEventListener('scroll', this.handleScroll);
+        },
+        beforeUnmount() {
+            window.removeEventListener('scroll', this.handleScroll);
+        },
+        methods: {
+            handleScroll() {
+                // 判断滚动位置，控制底部栏显示/隐藏
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    this.showFooter = true;
+                } else {
+                    this.showFooter = false;
+                }
+            }
+        }
+    };
+</script>
+
+<style>
+    .app-container {
+        position: relative; /* 设置相对定位，以便底部栏能够基于它定位 */
+        min-height: 100vh; /* 设置最小高度，确保内容撑开整个页面 */
+    }
+
+    .footer {
+        position: fixed; /* 固定底部位置 */
+        bottom: 0;
+        width: 100%;
+        background-color: #f2f2f2;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 999; /* 控制显示层级，确保底部栏在页面内容上方显示 */
+    }
+</style>
